@@ -10,34 +10,33 @@ title: 首页 # 页面标题
   </header>
 
   <article class="post-content">
-    <p>欢迎来到我的博客，和我探寻科技的意义。</p>
-
     <h2>最新文章</h2>
     {% if site.posts.size > 0 %}
-      <ul class="post-list">
-        {% for post in site.posts limit:5 %} {# 只显示最新的5篇文章 #}
-          <li>
-            <span class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
-            <h3>
-              <a class="post-link" href="{{ post.url | relative_url }}">
-                {{ post.title | escape }}
-              </a>
-            </h3>
-            {% if post.excerpt %} {# 如果文章有摘要，则显示摘要 #}
-              <p>{{ post.excerpt | strip_html | truncatewords: 30 }} <a href="{{ post.url | relative_url }}">阅读全文...</a></p>
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-      {% if site.posts.size > 5 %}
-        <p class="view-all">
-          <a href="{{ '/archive/' | relative_url }}">查看所有文章 »</a>
+    <ul class="post-list">
+      {% for post in site.posts limit:5 %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        {% if post.excerpt %}
+        <p>
+          {{ post.excerpt | strip_html | truncatewords: 30 }}
+          <a href="{{ post.url | relative_url }}">阅读全文...</a>
         </p>
-      {% endif %}
-    {% else %}
-      <p>抱歉，目前还没有任何文章。</p>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% if site.posts.size > 5 %}
+    <p class="view-all">
+      <a href="{{ '/archive/' | relative_url }}">查看所有文章 »</a>
+    </p>
+    {% endif %} {% else %}
+    <p>抱歉，目前还没有任何文章。</p>
     {% endif %}
   </article>
 </div>
 
-<!-- 你也可以在这里添加其他页面内容，或者更多自定义 HTML -->
