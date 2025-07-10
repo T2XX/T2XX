@@ -1,0 +1,443 @@
+/* 1. 全局样式 & 重置 */
+:root {
+  --primary-color: #3498db; /* 蓝色 */
+  --secondary-color: #2ecc71; /* 绿色 */
+  --text-color: #333;
+  --light-text-color: #7f8c8d;
+  --background-color: #f8f8f8;
+  --header-bg: #2c3e50; /* 深灰蓝 */
+  --footer-bg: #34495e; /* 更深的灰蓝 */
+  --border-color: #eee;
+  --code-bg: #ecf0f1;
+  --link-hover-color: #2980b9;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* 2. 头部样式 */
+.site-header {
+  background-color: var(--header-bg);
+  color: white;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* 响应式换行 */
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2em;
+  line-height: 1;
+}
+
+.site-header h1 a {
+  color: white;
+  text-decoration: none;
+}
+
+.site-nav a {
+  color: white;
+  margin-left: 20px;
+  font-size: 1.1em;
+  padding: 5px 0;
+  position: relative;
+}
+
+.site-nav a:hover {
+  color: #ecf0f1;
+  text-decoration: none;
+}
+
+.site-nav a::after {
+  /* 扁平化下划线效果 */
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+/* 3. 主内容区域 */
+.site-content {
+  padding: 40px 0;
+  min-height: calc(
+    100vh - 120px - 80px
+  ); /* 视口高度 - header - footer (大致) */
+}
+
+/* 4. 博客文章列表 (index.html) */
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-list li {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.post-list li:last-child {
+  border-bottom: none;
+}
+
+.post-list h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.post-list h2 a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.post-list h2 a:hover {
+  color: var(--primary-color);
+}
+
+.post-meta {
+  font-size: 0.9em;
+  color: var(--light-text-color);
+  margin-bottom: 15px;
+}
+
+.post-meta .post-author,
+.post-meta .post-tags {
+  margin-left: 15px;
+}
+.post-meta .post-tags a {
+  color: var(--light-text-color);
+}
+.post-meta .post-tags a:hover {
+  color: var(--primary-color);
+}
+
+.post-excerpt p {
+  color: #555;
+  margin-bottom: 1em;
+}
+
+.read-more-link {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.read-more-link:hover {
+  background-color: var(--link-hover-color);
+  text-decoration: none;
+}
+
+/* 5. 单篇文章样式 (post.html) */
+.post-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.post-title {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  color: var(--header-bg);
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+  line-height: 1.3;
+}
+
+.post-content h1 {
+  font-size: 2em;
+}
+.post-content h2 {
+  font-size: 1.7em;
+}
+.post-content h3 {
+  font-size: 1.4em;
+}
+
+.post-content p {
+  margin-bottom: 1em;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-left: 25px;
+  margin-bottom: 1em;
+}
+
+.post-content li {
+  margin-bottom: 0.5em;
+}
+
+.post-content blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding: 10px 20px;
+  margin: 1em 0;
+  background-color: #eaf6fd; /* 淡蓝色背景 */
+  color: #555;
+  font-style: italic;
+}
+
+.post-content code {
+  font-family: "Roboto Mono", monospace;
+  background-color: var(--code-bg);
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.post-content pre {
+  background-color: #333; /* 暗色背景，便于代码阅读 */
+  color: #eee;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 1.5em 0;
+}
+
+.post-content pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* 移除图片下方的额外空间 */
+  margin: 1.5em auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影，增加层次感 */
+}
+
+.back-to-home {
+  display: inline-block;
+  margin-top: 30px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-to-home:hover {
+  text-decoration: underline;
+}
+
+/* 6. 底部样式 */
+.site-footer {
+  background-color: var(--footer-bg);
+  color: #ecf0f1;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 0.9em;
+}
+
+.site-footer p {
+  margin-bottom: 5px;
+}
+
+/* 7. 响应式设计 */
+@media (max-width: 768px) {
+  .site-header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .site-header h1 {
+    margin-bottom: 15px;
+  }
+  .site-nav a {
+    margin: 0 10px;
+  }
+  .post-title {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .site-nav a {
+    margin: 5px 0;
+  }
+  .container {
+    padding: 0 15px;
+  }
+  .post-list h2 {
+    font-size: 1.5em;
+  }
+  .post-title {
+    font-size: 1.8em;
+  }
+}
+/* Tags Page specific styles for tag cloud (used on search.html) */
+.tag-cloud {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.tag-cloud-item {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 6px 12px;
+  margin: 5px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+.tag-cloud-item:hover {
+  background-color: var(--link-hover-color);
+  text-decoration: none;
+}
+.header-search-box {
+  margin-left: 20px; /* 调整与导航的间距 */
+  display: flex;
+  align-items: center;
+}
+
+.header-search-box form {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.15); /* 半透明背景 */
+  border-radius: 5px;
+  overflow: hidden; /* 隐藏超出部分，使圆角生效 */
+}
+
+.header-search-box input[type="search"] {
+  border: none;
+  padding: 8px 12px;
+  background: transparent;
+  color: white; /* 输入文字颜色 */
+  font-size: 1em;
+  width: 150px; /* 默认宽度 */
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.header-search-box input[type="search"]::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* 占位符颜色 */
+}
+
+.header-search-box input[type="search"]:focus {
+  outline: none;
+  width: 200px; /* 聚焦时宽度增加 */
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.header-search-box button {
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: white; /* 按钮图标颜色 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.header-search-box button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 确保 SVG 图标颜色为白色 */
+.header-search-box button svg {
+  color: white;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .site-header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .site-header h1 {
+    margin-bottom: 15px;
+  }
+  .site-nav {
+    margin-bottom: 15px; /* 导航和搜索框之间的间距 */
+  }
+  .header-search-box {
+    margin-left: 0; /* 在小屏幕上居中 */
+    width: 100%; /* 占据更多宽度 */
+    justify-content: center; /* 居中搜索表单 */
+  }
+  .header-search-box form {
+    width: 80%; /* 限制表单宽度 */
+  }
+  .header-search-box input[type="search"] {
+    width: 100%; /* 输入框在表单内占据所有可用宽度 */
+  }
+  .header-search-box input[type="search"]:focus {
+    width: 100%; /* 聚焦时也保持全宽 */
+  }
+}
+
+@media (max-width: 480px) {
+  .header-search-box form {
+    width: 95%; /* 进一步调整宽度以适应更小屏幕 */
+  }
+}

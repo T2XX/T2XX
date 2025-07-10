@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}
+    </title>
+    <meta
+      name="description"
+      content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ '/assets/css/style.css' | relative_url }}"
+    />
+    <link
+      rel="icon"
+      href="{{ '/favicon.ico' | relative_url }}"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&family=Roboto+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+        <nav class="site-nav">
+          <a href="{{ '/' | relative_url }}">首页</a>
+          <a href="{{ '/search' | relative_url }}">搜索</a>
+          <a href="{{ '/about' | relative_url }}">关于</a>
+        </nav>
+        <!-- 新增：头部搜索框 -->
+        <div class="header-search-box">
+          <form action="{{ '/search/' | relative_url }}" method="get">
+            <input
+              type="search"
+              name="q"
+              placeholder="搜索文章..."
+              aria-label="搜索框"
+            />
+            <button type="submit" aria-label="搜索">
+              <!-- 搜索图标 (SVG) -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-search"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <main class="site-content">
+      <div class="container">{{ content }}</div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          © {{ site.time | date: "%Y" }} {{ site.title }}. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

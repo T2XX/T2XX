@@ -1,0 +1,13 @@
+{
+  "files.associations": {
+    "*.json": "jsonc" // 或者其他不触发格式化的语言模式
+  },
+  "[json]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  },
+  "[jsonc]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  }
+}
