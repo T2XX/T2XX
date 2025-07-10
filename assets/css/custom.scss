@@ -1,0 +1,434 @@
+// assets/css/custom.scss
+--- # Front matter for Jekyll to process this as a SASS file --- // Custom styles for Anton's Blog, overriding Slate theme defaults for a more refined look.
+
+// --- General Body and Typography ---
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "PingFang SC", "Microsoft YaHei", sans-serif; // Add Chinese fonts
+    line-height: 1.7; // Slightly more spacious line height for readability
+    color: #36454F; // Charcoal grey for primary text
+    background-color: #F8F9FA; // Very light grey, almost white background
+}
+
+// --- Wrapper / Container ---
+.wrapper {
+    max-width: 980px; // Slightly wider content area
+    margin: 0 auto;
+    padding: 0 25px; // Generous padding on sides for smaller screens
+}
+
+// --- Header ---
+.site-header {
+    border-bottom: 1px solid #EAECEF; // Subtle border
+    padding: 25px 0;
+    text-align: center;
+    background-color: #FFFFFF; // White header background
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); // Very subtle shadow
+}
+
+.site-title {
+    font-size: 2.4em;
+    font-weight: 700; // Bolder title
+    color: #212529; // Darker color for title
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: #007bff; // Standard blue for hover
+    }
+}
+
+// --- Post List (on Index Page) ---
+.posts {
+    padding-top: 40px;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        background-color: #FFFFFF;
+        border: 1px solid #EAECEF;
+        border-radius: 10px; // More rounded corners
+        margin-bottom: 30px;
+        padding: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04); // A bit more pronounced, but still flat shadow
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        position: relative; // For potential pseudo-elements or badges
+        overflow: hidden; // Ensure border-radius clips shadows
+
+        &:hover {
+            transform: translateY(-5px); // Lift more on hover
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); // Stronger shadow
+        }
+    }
+}
+
+.post-meta {
+    font-size: 0.95em;
+    color: #6C757D; // Muted grey for meta info
+    margin-bottom: 12px;
+    display: block;
+}
+
+.post-link {
+    font-size: 2.0em;
+    font-weight: 600;
+    color: #343A40; // Dark text for link
+    text-decoration: none;
+    line-height: 1.3;
+    display: block;
+    margin-bottom: 18px;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: #007bff; // Blue on hover
+    }
+}
+
+.post-excerpt {
+    font-size: 1.05em;
+    color: #495057; // Slightly lighter text for excerpt
+    line-height: 1.6;
+    margin-bottom: 20px;
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 500;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.view-all {
+    text-align: center;
+    margin-top: 40px;
+
+    a {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 1.1em;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+
+        &:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px); // Slight lift on hover
+        }
+    }
+}
+
+// --- Article Content (Single Post Page) ---
+.post-content {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 40px;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #212529;
+        margin-top: 2em;
+        margin-bottom: 0.8em;
+        padding-bottom: 0.4em;
+        border-bottom: 1px solid #EAECEF; // Subtle line under headings
+        font-weight: 600;
+    }
+
+    h1 {
+        font-size: 2.6em;
+    }
+
+    h2 {
+        font-size: 2.2em;
+    }
+
+    h3 {
+        font-size: 1.8em;
+    }
+
+    h4 {
+        font-size: 1.5em;
+    }
+
+    p {
+        margin-bottom: 1.2em;
+        font-size: 1.05em;
+        line-height: 1.75;
+        color: #36454F;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.2s ease, text-decoration 0.2s ease;
+
+        &:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    }
+
+    // --- Code Blocks and Inline Code ---
+    code {
+        background-color: #F0F2F5; // Light grey for inline code
+        padding: 3px 6px;
+        border-radius: 4px;
+        font-family: 'Fira Code', 'Source Code Pro', monospace; // Preferred code font
+        font-size: 0.9em;
+        color: #DA70D6; // Orchid color for inline code, stands out a bit
+    }
+
+    pre {
+        background-color: #282C34; // Dracula theme like dark background
+        color: #ABB2BF;
+        padding: 1.2em;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-family: 'Fira Code', 'Source Code Pro', monospace;
+        font-size: 0.95em;
+        line-height: 1.5;
+        margin-bottom: 2em; // More space below code blocks
+    }
+
+    .highlight {
+        // Rouge highlighter wrapper
+        margin-bottom: 2em;
+        border-radius: 8px; // Apply border-radius to the highlight wrapper too
+    }
+
+    // --- Lists ---
+    ul,
+    ol {
+        margin-bottom: 1.5em;
+        padding-left: 30px;
+
+        li {
+            margin-bottom: 0.5em;
+            line-height: 1.6;
+            color: #36454F;
+        }
+    }
+
+    // --- Blockquotes ---
+    blockquote {
+        border-left: 5px solid #007bff;
+        background-color: #E6F7FF; // Softer blue background
+        padding: 15px 25px;
+        margin: 1.5em 0;
+        color: #495057;
+        font-style: italic;
+        border-radius: 5px; // Rounded corners for blockquote
+    }
+
+    // --- Tables ---
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+        font-size: 0.95em;
+
+        th,
+        td {
+            border: 1px solid #DEE2E6; // Lighter border for tables
+            padding: 10px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #F8F9FA; // Light header background
+            font-weight: 600;
+            color: #343A40;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FBFBFB; // Subtle zebra striping
+        }
+    }
+
+    // --- Images ---
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block; // Center images if desired, or just block level
+        margin: 1.5em auto; // Center images and add vertical space
+        border-radius: 8px; // Slightly rounded images
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); // Subtle shadow for images
+    }
+}
+
+// --- Post Header on Single Post Page ---
+.post .post-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #EAECEF;
+
+    h1.post-title {
+        font-size: 3.2em; // Larger title for individual posts
+        color: #212529;
+        margin-bottom: 15px;
+        line-height: 1.2;
+        // Remove Slate's default border for H1
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    p.post-meta {
+        font-size: 1.1em;
+        color: #6C757D;
+
+        span {
+            display: inline-block;
+            margin: 0 8px;
+        }
+
+        // Specific styles for categories and tags
+        .categories,
+        .tags {
+            font-size: 0.9em;
+
+            a {
+                background-color: #e9ecef;
+                color: #495057;
+                padding: 4px 8px;
+                border-radius: 5px;
+                text-decoration: none;
+                transition: background-color 0.2s ease;
+
+                &:hover {
+                    background-color: #dee2e6;
+                }
+            }
+        }
+    }
+
+    // Add some space between meta elements
+    .post-meta span+span:before {
+        content: "•";
+        margin-right: 8px;
+        color: #AAA;
+    }
+}
+
+
+// --- Footer ---
+.site-footer {
+    margin-top: 60px;
+    border-top: 1px solid #EAECEF;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+    color: #6C757D;
+    background-color: #FFFFFF;
+}
+
+
+// --- Responsive Adjustments ---
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    .wrapper {
+        padding: 0 20px;
+    }
+
+    .site-title {
+        font-size: 2em;
+    }
+
+    .post-list li {
+        padding: 25px;
+        margin-bottom: 25px;
+    }
+
+    .post-link {
+        font-size: 1.7em;
+        margin-bottom: 15px;
+    }
+
+    .post-content {
+        padding: 30px;
+        margin-top: 20px;
+    }
+
+    .post-content h1 {
+        font-size: 2.2em;
+    }
+
+    .post-content h2 {
+        font-size: 1.8em;
+    }
+
+    .post-content h3 {
+        font-size: 1.5em;
+    }
+
+    .post .post-header h1.post-title {
+        font-size: 2.5em;
+    }
+
+    .post .post-header p.post-meta {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        padding: 0 15px;
+    }
+
+    .post-list li {
+        padding: 20px;
+    }
+
+    .post-link {
+        font-size: 1.4em;
+    }
+
+    .post-content {
+        padding: 20px;
+    }
+
+    .post-content h1 {
+        font-size: 2em;
+    }
+
+    .post-content h2 {
+        font-size: 1.6em;
+    }
+
+    .post-content h3 {
+        font-size: 1.3em;
+    }
+
+    .post .post-header h1.post-title {
+        font-size: 2em;
+    }
+
+    .post .post-header p.post-meta {
+        span {
+            display: block; // Stack meta elements on very small screens
+            margin: 5px 0;
+        }
+
+        span+span:before {
+            content: ""; // Remove bullet when stacked
+            margin-right: 0;
+        }
+    }
+}

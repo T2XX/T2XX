@@ -1,0 +1,28 @@
+<!-- _includes/head.html -->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>
+    {% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title |
+    escape }}
+  </title>
+  <meta
+    name="description"
+    content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}"
+  />
+
+  <!-- 链接远程主题的默认样式表 -->
+  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+  <!-- 链接我们的自定义样式表，它会在主题样式之后加载，用于覆盖和增强 -->
+  <link rel="stylesheet" href="{{ "/assets/css/custom.css" | relative_url }}">
+
+  <link
+    rel="canonical"
+    href="{{ page.url | replace:'index.html','' | absolute_url }}"
+  />
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape
+  }}" href="{{ "/feed.xml" | relative_url }}"> {% if site.google_analytics %} {%
+  include google-analytics.html %} {% endif %} {% seo %}
+</head>
