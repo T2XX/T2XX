@@ -1,0 +1,63 @@
+# ---------------------------------------------------------------
+# 主题配置 (Theme Configuration)
+# ---------------------------------------------------------------
+remote_theme: pages-themes/slate@v0.2.0 # 使用 GitHub Pages 官方的 Slate 主题
+
+# ---------------------------------------------------------------
+# 插件 (Plugins)
+# ---------------------------------------------------------------
+plugins:
+  - jekyll-remote-theme # 启用远程主题插件
+  - jekyll-feed         # 生成 RSS Feed，方便订阅者
+  - jekyll-seo-tag      # 增强 SEO，自动生成 Open Graph 和 Twitter Card 元标签
+
+# ---------------------------------------------------------------
+# 站点设置 (Site Settings)
+# ---------------------------------------------------------------
+title: Anton的技术博客 # 你的博客标题
+email: anton_we@outlook.com # 你的联系邮箱，可选
+description: >- # 你的博客描述，会显示在搜索引擎结果中
+  欢迎来到我的博客，和我探寻科技的意义。
+
+# IMPORTANT: 请将这里的 URL 和 baseurl 替换为你的实际地址！
+#
+# 对于用户/组织页面 (例如：yourusername.github.io):
+#   url: "https://yourusername.github.io"
+#   baseurl: "" (空字符串)
+#
+# 对于项目页面 (例如：yourusername.github.io/your-repo-name):
+#   url: "https://yourusername.github.io"
+#   baseurl: "/your-repo-name" (你的仓库名，带斜杠)
+url: "https://T2XX.github.io/T2XX" # 你的 GitHub Pages 域名，例如 "https://T2XX.github.io"
+baseurl: "" # 如果你的仓库是 T2XX.github.io，这里留空。如果是 your-repo-name，则填写 "/your-repo-name"
+
+permalink: /:year/:month/:day/:title/ # 优雅的 URL 结构
+
+# ---------------------------------------------------------------
+# 构建设置 (Build Settings)
+# ---------------------------------------------------------------
+markdown: kramdown # Markdown 处理器
+highlighter: rouge # 代码高亮器
+kramdown:
+  input: GFM # GitHub Flavored Markdown
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
+# 排除的文件和文件夹，这些不会被 Jekyll 处理
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - Rakefile
+  - .editorconfig
+  - .gitattributes
+  - .gitignore
+  - CNAME # CNAME 通常放在根目录，而不是 _site
